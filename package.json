@@ -9,7 +9,7 @@
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix",
     "clean": "rm -rf dist/",
     "example:serve": "vite serve example",
-    "example:build": "vite build example"
+    "example:build": "vite build example --base=/react-infinite-area/"
   },
   "devDependencies": {
     "@types/eslint": "^7",
