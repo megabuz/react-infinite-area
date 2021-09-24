@@ -5,10 +5,10 @@ import { Point } from "../types";
 import { convertPointToContainerBoundaries } from "../utils";
 
 const ZOOM_FACTOR = 800;
-const MIN_ZOOM = 0.2;
 
 export function useScrollAndZoom<T extends HTMLElement>(
-  containerRef: React.RefObject<T>
+  containerRef: React.RefObject<T>,
+  { minScale = 0.1, maxScale }: { minScale?: number; maxScale?: number }
 ) {
   const [springProps, setSpring] = useSpring(() => ({
     left: 0,
@@ -24,6 +24,15 @@ export function useScrollAndZoom<T extends HTMLElement>(
   }));
 
   const mousePos = useRef<Point>([0, 0]);
+
+  const distanceBounds = {
+    min: (minScale - 1) * ZOOM_FACTOR,
+  } as { min?: number; max?: number };
+
+  if (maxScale != null) {
+    distanceBounds.max = (maxScale - 1) * ZOOM_FACTOR;
+  }
+
   useGesture(
     {
       onPinchStart: ({ origin }) => {
@@ -61,7 +70,7 @@ export function useScrollAndZoom<T extends HTMLElement>(
         initial: () => [-springProps.left.get(), -springProps.top.get()],
       },
       pinch: {
-        distanceBounds: { min: (MIN_ZOOM - 1) * ZOOM_FACTOR },
+        distanceBounds,
       },
     }
   );

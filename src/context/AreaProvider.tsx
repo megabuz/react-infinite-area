@@ -29,11 +29,15 @@ const ScrollBarThumbsContext = React.createContext<{
 
 type ProviderProps<T extends HTMLElement> = {
   containerRef: React.RefObject<T>;
+  minScale?: number;
+  maxScale?: number;
 } & Boundaries;
 
 export function AreaRefProvider<T extends HTMLElement>({
   children,
   containerRef,
+  minScale,
+  maxScale,
   ...boundaries
 }: React.PropsWithChildren<ProviderProps<T>>) {
   useEffect(() => {
@@ -46,7 +50,7 @@ export function AreaRefProvider<T extends HTMLElement>({
     }
   }, [containerRef]);
 
-  const springProps = useScrollAndZoom(containerRef);
+  const springProps = useScrollAndZoom(containerRef, { minScale, maxScale });
   const thumbContextValues = useGetThumbContextValues(
     containerRef,
     springProps[0],
