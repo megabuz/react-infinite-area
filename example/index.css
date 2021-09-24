@@ -68,4 +68,11 @@ html,
 .item,
 .tmpItem {
   position: absolute;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.tmpItem {
+  z-index: 1;
 }

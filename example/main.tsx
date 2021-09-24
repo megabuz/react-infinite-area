@@ -12,14 +12,16 @@ type Point = readonly [number, number];
 type Item = {
   point: Point;
   color: string;
+  text?: string;
 };
 
 const App: React.VFC = () => {
   const containerRef = useRef(null);
   const [items, setItems] = useState<Item[]>([
     {
-      point: [20, 20],
-      color: "purple",
+      text: "Scroll and zoom",
+      color: "lightgrey",
+      point: [350, 50],
     },
   ]);
 
@@ -29,14 +31,14 @@ const App: React.VFC = () => {
     <div className="wrapper">
       <InfiniteArea.Provider containerRef={containerRef} {...boundaries}>
         <div className="dragWrapper">
-          <div>Drag, scroll, zoom!</div>
+          <div>Drag items</div>
           <DraggableItem onNewItem={onNewItem} color="red" />
           <DraggableItem onNewItem={onNewItem} color="blue" />
           <DraggableItem onNewItem={onNewItem} color="green" />
         </div>
         <div ref={containerRef} className="container">
           <InfiniteArea.Root>
-            {items.map(({ point, color }, index) => (
+            {items.map(({ point, color, text }, index) => (
               <div
                 key={index}
                 className="item"
@@ -45,7 +47,9 @@ const App: React.VFC = () => {
                   top: point[1],
                   backgroundColor: color,
                 }}
-              />
+              >
+                {text}
+              </div>
             ))}
           </InfiniteArea.Root>
           <InfiniteArea.ScrollBar
