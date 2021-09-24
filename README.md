@@ -30,7 +30,7 @@ function App() {
       maxY={maxY}
     >
       <div ref={ref}>
-        <InfiniteArea.Root>Content</InfiniteArea.Root>
+        <InfiniteArea.Root>Some Absolute Positioned Content</InfiniteArea.Root>
         <InfiniteArea.ScrollBar orientation="horizontal">
           <InfiniteArea.ScrollBarThumb />
         </InfiniteArea.ScrollBar>
@@ -45,7 +45,7 @@ function App() {
 
 ### Container
 
-First of all, you will need a container for the scrollable area.
+First of all, you will need a container with a ref for the scrollable area.
 
 ```jsx
 const ref = useRef(null);
@@ -53,7 +53,7 @@ const ref = useRef(null);
 return <div ref={ref} />;
 ```
 
-_🔥 be careful! react-infinite-area will add below css to container_
+_🔥 for proper work react-infinite-area will add the following css to the container_
 
 ```css
  {
@@ -68,7 +68,7 @@ _🔥 be careful! react-infinite-area will add below css to container_
 
 Second you need to calculate boundaries of the content inside scrollable area, wrap the container with `InfiniteArea.Provider` and add `InfiniteArea.Root` with your content inside.
 
-_We delegate this logic to developers as sometimes it can be easier and faster to calculate it manually_
+_react-infinite-area doesn't calculate boundaries because sometimes it can be easier and faster to calculate it manually_
 
 ```jsx
 const { minX, minY, maxX, maxY } = useMyOwnCustomBoundariesCalc();
@@ -81,13 +81,13 @@ return (
     maxY={maxY}
   >
     <div ref={ref}>
-      <InfiniteArea.Root>Content</InfiniteArea.Root>
+      <InfiniteArea.Root>Some Absolute Positioned Content</InfiniteArea.Root>
     </div>
   </InfiniteArea.Provider>
 );
 ```
 
-On this step you should be able to use mouse wheel and pinch to scroll and zoom
+On this step you should be able to use mouse wheel to scroll and pinch to zoom
 
 ### Scrollbars
 
@@ -105,13 +105,11 @@ Finally you need to add scrollbar on **the same level** as `InfiniteArea.Root` a
 </div>
 ```
 
-💅 `ScrollBar` and `ScrollBarThumb` components accept the `className` props. The positions for scroll bars and thumbs are predefined.
-
-You can use css variables to control position:
+💅 `ScrollBar` and `ScrollBarThumb` components accept the `className` props. The positions for scroll bars and thumbs are predefined, but can be controlled by following css variables:
 
 - `--infinite-area-scroll-size` defines the width of the horizontal scroll bar and the height of the vertical scroll bar (8px by default);
 - `--infinite-area-scroll-margin` specifies margin from the edges of the container (0px by default);
-- `--infinite-area-scroll-corner-size` controls padding from the corner between the scroll bars to prevent overlap (--infinite-area-scroll-size by default);
+- `--infinite-area-scroll-corner-size` controls padding from the corner between the scroll bars to prevent overlap (`--infinite-area-scroll-size` by default);
 - `--infinite-area-scroll-thumb-margin` specifies thumbs margins from scrollbars edges (0px by default);
 
 Orientation of scroll bars is exposed as `data-orientation` attribute to both components.

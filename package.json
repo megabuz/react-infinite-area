@@ -8,7 +8,8 @@
     "build:esm": "tsc --module ES6 --outDir dist/esm",
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix",
     "clean": "rm -rf dist/",
-    "example:serve": "vite serve example"
+    "example:serve": "vite serve example",
+    "example:build": "vite build example"
   },
   "devDependencies": {
     "@types/eslint": "^7",
