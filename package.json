@@ -1,20 +1,30 @@
 {
   "name": "react-infinite-area",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "packageManager": "yarn@3.0.2",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "source": "src/index.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/cjs/index.d.ts",
   "scripts": {
     "build": "yarn build:cjs && yarn build:esm",
     "build:cjs": "tsc",
     "build:esm": "tsc --module ES6 --outDir dist/esm",
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix",
     "clean": "rm -rf dist/",
+    "publish": "yarn bump && yarn clean && yarn build && yarn npm publish --access public --tolerate-republish",
+    "bump": "yarn version apply --all",
     "example:serve": "vite serve example",
     "example:build": "vite build example --base=/react-infinite-area/"
   },
   "devDependencies": {
-    "@types/eslint": "^7",
-    "@types/prettier": "^2",
-    "@types/react": "^17.0.22",
+    "@types/eslint": "^7.28.0",
+    "@types/prettier": "^2.4.0",
+    "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.31.2",
@@ -22,7 +32,7 @@
     "csstype": "^3.0.9",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-react": "^7.25.3",
+    "eslint-plugin-react": "^7.26.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.4.1",
     "react": "^17.0.2",
