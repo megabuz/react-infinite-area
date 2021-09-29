@@ -118,6 +118,12 @@ Orientation of scroll bars is exposed as `data-orientation` attribute to both co
 
 _You can use hooks in components inside `InfiniteArea.Provider`_
 
-- `useInfiniteAreaPagePointRemap` returns a function that converts `[x, y]` position from the page coordinates to the coordinates of the local area in accordance with scrolling and zooming.
+- `usePagePointTransform` returns a function that converts `[x, y]` position from the page coordinates to the coordinates of the local area in accordance with scrolling and zooming.
 
-- `useInfiniteAreaContainerPointRemap` is the same but instead of page coordinates it remapes unscrolled, unzoomed container coordinates
+- `useContainerPointTransform` is the same but instead of page coordinates it remapes unscrolled, unzoomed container coordinates
+
+**Low-level hooks**
+
+- `useContainerRef` returns container ref passed to `InfiniteArea.Provider`
+- `useZoomAndScrollSpringProps` returns `[{left, top ,scale], api}]` where `left`, `top`, `scale` are the spring values for the scrollable area position and api is the `react-spring` API object to control this values
+- `useThumbValues` returns `{xPos, width, yPos, height}` where all values are `Interpolation` used for scroll bars thumbs
