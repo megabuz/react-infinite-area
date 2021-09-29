@@ -3,7 +3,7 @@ import { useContainerRef, useZoomAndScrollSpringProps } from "./context";
 import { Point } from "./types";
 import { convertPointToContainerBoundaries } from "./utils";
 
-export const useInfiniteAreaContainerPointRemap = () => {
+export const useContainerPointTransform = () => {
   const [{ scale, left, top }] = useZoomAndScrollSpringProps();
   return useCallback(
     ([x, y]: Point) => {
@@ -16,9 +16,9 @@ export const useInfiniteAreaContainerPointRemap = () => {
   );
 };
 
-export const useInfiniteAreaPagePointRemap = () => {
+export const usePagePointTransform = () => {
   const containerRef = useContainerRef();
-  const areaTransform = useInfiniteAreaContainerPointRemap();
+  const areaTransform = useContainerPointTransform();
   return useCallback(
     (p: Point) => {
       const pointToArea = convertPointToContainerBoundaries(containerRef, p);
