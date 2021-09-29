@@ -3,7 +3,7 @@ import "./index.css";
 import React, { useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import { useDrag } from "react-use-gesture";
-import { InfiniteArea, useInfiniteAreaPagePointRemap } from "../src";
+import { InfiniteArea, usePagePointTransform } from "../src";
 
 const ITEM_SIZE = 100;
 
@@ -75,7 +75,7 @@ type DraggableItemProps = {
 const DraggableItem = ({ onNewItem, color }: DraggableItemProps) => {
   const [tmpItem, setTmpItem] = useState<Point | null>(null);
 
-  const converter = useInfiniteAreaPagePointRemap();
+  const converter = usePagePointTransform();
   const bindDrag = useDrag(({ xy, last }) => {
     if (last) {
       setTmpItem(null);
