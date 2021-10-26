@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from "react";
 import { animated } from "@react-spring/web";
-import { useGesture } from "react-use-gesture";
+import { useGesture } from "@use-gesture/react";
 import { useThumbValues, useZoomAndScrollSpringProps } from "../context";
 import { cssThumbMargin, getCssThumbPosition, getCssThumbSize } from "./css";
 
@@ -50,7 +50,7 @@ export const ScrollBarThumb: React.VFC<Props> = ({ style, ...props }) => {
       },
     },
     {
-      domTarget: ref,
+      target: ref,
     }
   );
 

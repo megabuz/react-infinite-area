@@ -2,7 +2,7 @@ import "./index.css";
 
 import React, { useRef, useState } from "react";
 import ReactDOM from "react-dom";
-import { useDrag } from "react-use-gesture";
+import { useDrag } from "@use-gesture/react";
 import { InfiniteArea, usePagePointTransform } from "../src";
 
 const ITEM_SIZE = 100;

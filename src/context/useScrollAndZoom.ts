@@ -1,10 +1,8 @@
 import React, { useRef } from "react";
 import { useSpring } from "@react-spring/web";
-import { useGesture } from "react-use-gesture";
+import { useGesture } from "@use-gesture/react";
 import { Point } from "../types";
 import { convertPointToContainerBoundaries } from "../utils";
-
-const ZOOM_FACTOR = 800;
 
 export function useScrollAndZoom<T extends HTMLElement>(
   containerRef: React.RefObject<T>,
@@ -23,54 +21,70 @@ export function useScrollAndZoom<T extends HTMLElement>(
     },
   }));
 
-  const mousePos = useRef<Point>([0, 0]);
+  const initialPinchPos = useRef<Point>([0, 0]);
 
-  const distanceBounds = {
-    min: (minScale - 1) * ZOOM_FACTOR,
+  const scaleBounds = {
+    min: minScale,
   } as { min?: number; max?: number };
 
   if (maxScale != null) {
-    distanceBounds.max = (maxScale - 1) * ZOOM_FACTOR;
+    scaleBounds.max = maxScale;
   }
 
   useGesture(
     {
       onPinchStart: ({ origin }) => {
-        mousePos.current = convertPointToContainerBoundaries(
+        initialPinchPos.current = convertPointToContainerBoundaries(
           containerRef,
           origin
         );
       },
-      onPinch: ({ event, offset: [z] }) => {
+      onPinch: ({ event, offset: [newScale], origin, memo }) => {
         event.preventDefault();
-        const newScale = z / ZOOM_FACTOR + 1;
 
         const ds = newScale / springProps.scale.get() - 1;
-        var dx = (mousePos.current[0] - springProps.left.get()) * ds,
-          dy = (mousePos.current[1] - springProps.top.get()) * ds;
+        const dx = (initialPinchPos.current[0] - springProps.left.get()) * ds,
+          dy = (initialPinchPos.current[1] - springProps.top.get()) * ds;
 
-        setSpring.start({
-          left: springProps.left.get() - dx,
-          top: springProps.top.get() - dy,
+        const scaledX = springProps.left.get() - dx;
+        const scaledY = springProps.top.get() - dy;
+
+        const convOrigin = convertPointToContainerBoundaries(
+          containerRef,
+          origin
+        );
+
+        let tickX = 0;
+        let tickY = 0;
+        if (memo != null) {
+          tickX = memo[0] - convOrigin[0];
+          tickY = memo[1] - convOrigin[1];
+        }
+
+        setSpring.set({
+          left: scaledX - tickX,
+          top: scaledY - tickY,
           scale: newScale,
         });
+
+        return convOrigin;
       },
-      onWheel: ({ event, movement: [x, y] }) => {
+      onWheel: ({ event, offset: [x, y] }) => {
         // do not go back in browser history
         event.preventDefault();
         setSpring.start({ left: -x, top: -y });
       },
     },
     {
-      domTarget: containerRef,
+      target: containerRef,
       eventOptions: {
         passive: false,
       },
       wheel: {
-        initial: () => [-springProps.left.get(), -springProps.top.get()],
+        from: () => [-springProps.left.get(), -springProps.top.get()],
       },
       pinch: {
-        distanceBounds,
+        scaleBounds,
       },
     }
   );
