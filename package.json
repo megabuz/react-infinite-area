@@ -1,6 +1,6 @@
 {
   "name": "react-infinite-area",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "packageManager": "yarn@3.0.2",
   "files": [
     "src",
