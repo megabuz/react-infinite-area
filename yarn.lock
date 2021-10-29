@@ -636,6 +636,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@use-gesture/core@npm:10.1.1":
+  version: 10.1.1
+  resolution: "@use-gesture/core@npm:10.1.1"
+  checksum: c98b403e2e5fe2b68c330a14fa6385e2774ec632b2a6cd4de21e6387638abd4b12d2e958e2573fa9ada1a1aaaf0875fb589431e2838ef067f3d28b0480583fcf
+  languageName: node
+  linkType: hard
+
+"@use-gesture/react@npm:^10.1.1":
+  version: 10.1.1
+  resolution: "@use-gesture/react@npm:10.1.1"
+  dependencies:
+    "@use-gesture/core": 10.1.1
+  peerDependencies:
+    react: ">= 16.8.0"
+  checksum: 1d7b1507b87f955ecef566e73d9d0565a92dea16b89f737e84030e54b356e9f2e56d29b108a55bc2371507ee7c533c38395c698418a410170a5a7ddf8168715b
+  languageName: node
+  linkType: hard
+
 "@vitejs/plugin-react-refresh@npm:^1.3.6":
   version: 1.3.6
   resolution: "@vitejs/plugin-react-refresh@npm:1.3.6"
@@ -2613,6 +2631,7 @@ fsevents@~2.3.2:
     "@types/react-dom": ^17.0.9
     "@typescript-eslint/eslint-plugin": ^4.32.0
     "@typescript-eslint/parser": ^4.32.0
+    "@use-gesture/react": ^10.1.1
     "@vitejs/plugin-react-refresh": ^1.3.6
     csstype: ^3.0.9
     eslint: ^7.32.0
@@ -2622,7 +2641,6 @@ fsevents@~2.3.2:
     prettier: ^2.4.1
     react: ^17.0.2
     react-dom: ^17.0.2
-    react-use-gesture: ^9.1.3
     typescript: ^4.4.3
     use-resize-observer: ^8.0.0
     vite: ^2.5.10
@@ -2643,15 +2661,6 @@ fsevents@~2.3.2:
   version: 0.10.0
   resolution: "react-refresh@npm:0.10.0"
   checksum: 089b8ea9ad8038046c0467a2476595eedab9e30620f50daa50e844c81d626de43a44a6a628256ae58e68885d5fe1d7e05074ddfd99ece3808b013d043f0c6030
-  languageName: node
-  linkType: hard
-
-"react-use-gesture@npm:^9.1.3":
-  version: 9.1.3
-  resolution: "react-use-gesture@npm:9.1.3"
-  peerDependencies:
-    react: ">= 16.8.0"
-  checksum: 4436b9c4e6634c74884b6d8c8b22b57e280a3ec5b2167467f4405c56e7ca9a188771d0c043d17eb62d5d9d6e15c16ae2b7a370a187391ef1d1740361b8882b43
   languageName: node
   linkType: hard
 

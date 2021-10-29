@@ -42,6 +42,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", "npm:17.0.9"],
             ["@typescript-eslint/eslint-plugin", "virtual:b9db80f34ef634e9f9728c50d98b0a26df14d62b3254c7b68484967b545c917a151a6023a73f223444bc11fba98fc1230d9a4ed4a73ef66cd90ae4e80468bd60#npm:4.32.0"],
             ["@typescript-eslint/parser", "virtual:b9db80f34ef634e9f9728c50d98b0a26df14d62b3254c7b68484967b545c917a151a6023a73f223444bc11fba98fc1230d9a4ed4a73ef66cd90ae4e80468bd60#npm:4.32.0"],
+            ["@use-gesture/react", "virtual:b9db80f34ef634e9f9728c50d98b0a26df14d62b3254c7b68484967b545c917a151a6023a73f223444bc11fba98fc1230d9a4ed4a73ef66cd90ae4e80468bd60#npm:10.1.1"],
             ["@vitejs/plugin-react-refresh", "npm:1.3.6"],
             ["csstype", "npm:3.0.9"],
             ["eslint", "npm:7.32.0"],
@@ -51,7 +52,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prettier", "npm:2.4.1"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:b9db80f34ef634e9f9728c50d98b0a26df14d62b3254c7b68484967b545c917a151a6023a73f223444bc11fba98fc1230d9a4ed4a73ef66cd90ae4e80468bd60#npm:17.0.2"],
-            ["react-use-gesture", "virtual:b9db80f34ef634e9f9728c50d98b0a26df14d62b3254c7b68484967b545c917a151a6023a73f223444bc11fba98fc1230d9a4ed4a73ef66cd90ae4e80468bd60#npm:9.1.3"],
             ["typescript", "patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=32657b"],
             ["use-resize-observer", "virtual:b9db80f34ef634e9f9728c50d98b0a26df14d62b3254c7b68484967b545c917a151a6023a73f223444bc11fba98fc1230d9a4ed4a73ef66cd90ae4e80468bd60#npm:8.0.0"],
             ["vite", "npm:2.5.10"]
@@ -901,6 +901,38 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@typescript-eslint/visitor-keys", "npm:4.32.0"],
             ["@typescript-eslint/types", "npm:4.32.0"],
             ["eslint-visitor-keys", "npm:2.1.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@use-gesture/core", [
+        ["npm:10.1.1", {
+          "packageLocation": "./.yarn/cache/@use-gesture-core-npm-10.1.1-624c332735-c98b403e2e.zip/node_modules/@use-gesture/core/",
+          "packageDependencies": [
+            ["@use-gesture/core", "npm:10.1.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@use-gesture/react", [
+        ["npm:10.1.1", {
+          "packageLocation": "./.yarn/cache/@use-gesture-react-npm-10.1.1-f895c1cda0-1d7b1507b8.zip/node_modules/@use-gesture/react/",
+          "packageDependencies": [
+            ["@use-gesture/react", "npm:10.1.1"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:b9db80f34ef634e9f9728c50d98b0a26df14d62b3254c7b68484967b545c917a151a6023a73f223444bc11fba98fc1230d9a4ed4a73ef66cd90ae4e80468bd60#npm:10.1.1", {
+          "packageLocation": "./.yarn/__virtual__/@use-gesture-react-virtual-064e98493c/0/cache/@use-gesture-react-npm-10.1.1-f895c1cda0-1d7b1507b8.zip/node_modules/@use-gesture/react/",
+          "packageDependencies": [
+            ["@use-gesture/react", "virtual:b9db80f34ef634e9f9728c50d98b0a26df14d62b3254c7b68484967b545c917a151a6023a73f223444bc11fba98fc1230d9a4ed4a73ef66cd90ae4e80468bd60#npm:10.1.1"],
+            ["@types/react", "npm:17.0.24"],
+            ["@use-gesture/core", "npm:10.1.1"],
+            ["react", "npm:17.0.2"]
+          ],
+          "packagePeers": [
+            "@types/react",
+            "react"
           ],
           "linkType": "HARD",
         }]
@@ -3217,6 +3249,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", "npm:17.0.9"],
             ["@typescript-eslint/eslint-plugin", "virtual:b9db80f34ef634e9f9728c50d98b0a26df14d62b3254c7b68484967b545c917a151a6023a73f223444bc11fba98fc1230d9a4ed4a73ef66cd90ae4e80468bd60#npm:4.32.0"],
             ["@typescript-eslint/parser", "virtual:b9db80f34ef634e9f9728c50d98b0a26df14d62b3254c7b68484967b545c917a151a6023a73f223444bc11fba98fc1230d9a4ed4a73ef66cd90ae4e80468bd60#npm:4.32.0"],
+            ["@use-gesture/react", "virtual:b9db80f34ef634e9f9728c50d98b0a26df14d62b3254c7b68484967b545c917a151a6023a73f223444bc11fba98fc1230d9a4ed4a73ef66cd90ae4e80468bd60#npm:10.1.1"],
             ["@vitejs/plugin-react-refresh", "npm:1.3.6"],
             ["csstype", "npm:3.0.9"],
             ["eslint", "npm:7.32.0"],
@@ -3226,7 +3259,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["prettier", "npm:2.4.1"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:b9db80f34ef634e9f9728c50d98b0a26df14d62b3254c7b68484967b545c917a151a6023a73f223444bc11fba98fc1230d9a4ed4a73ef66cd90ae4e80468bd60#npm:17.0.2"],
-            ["react-use-gesture", "virtual:b9db80f34ef634e9f9728c50d98b0a26df14d62b3254c7b68484967b545c917a151a6023a73f223444bc11fba98fc1230d9a4ed4a73ef66cd90ae4e80468bd60#npm:9.1.3"],
             ["typescript", "patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=32657b"],
             ["use-resize-observer", "virtual:b9db80f34ef634e9f9728c50d98b0a26df14d62b3254c7b68484967b545c917a151a6023a73f223444bc11fba98fc1230d9a4ed4a73ef66cd90ae4e80468bd60#npm:8.0.0"],
             ["vite", "npm:2.5.10"]
@@ -3248,28 +3280,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/react-refresh-npm-0.10.0-a406cf3a25-089b8ea9ad.zip/node_modules/react-refresh/",
           "packageDependencies": [
             ["react-refresh", "npm:0.10.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["react-use-gesture", [
-        ["npm:9.1.3", {
-          "packageLocation": "./.yarn/cache/react-use-gesture-npm-9.1.3-5c2e76bd9b-4436b9c4e6.zip/node_modules/react-use-gesture/",
-          "packageDependencies": [
-            ["react-use-gesture", "npm:9.1.3"]
-          ],
-          "linkType": "SOFT",
-        }],
-        ["virtual:b9db80f34ef634e9f9728c50d98b0a26df14d62b3254c7b68484967b545c917a151a6023a73f223444bc11fba98fc1230d9a4ed4a73ef66cd90ae4e80468bd60#npm:9.1.3", {
-          "packageLocation": "./.yarn/__virtual__/react-use-gesture-virtual-fb61e0f44a/0/cache/react-use-gesture-npm-9.1.3-5c2e76bd9b-4436b9c4e6.zip/node_modules/react-use-gesture/",
-          "packageDependencies": [
-            ["react-use-gesture", "virtual:b9db80f34ef634e9f9728c50d98b0a26df14d62b3254c7b68484967b545c917a151a6023a73f223444bc11fba98fc1230d9a4ed4a73ef66cd90ae4e80468bd60#npm:9.1.3"],
-            ["@types/react", "npm:17.0.24"],
-            ["react", "npm:17.0.2"]
-          ],
-          "packagePeers": [
-            "@types/react",
-            "react"
           ],
           "linkType": "HARD",
         }]
