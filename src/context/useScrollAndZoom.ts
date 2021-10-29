@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import { useSpring } from "@react-spring/web";
 import { useGesture } from "@use-gesture/react";
 import { Point } from "../types";
@@ -88,5 +88,10 @@ export function useScrollAndZoom<T extends HTMLElement>(
       },
     }
   );
-  return [springProps, setSpring] as const;
+
+  const { left, top, scale } = springProps;
+  return useMemo(
+    () => [{ left, top, scale }, setSpring] as const,
+    [left, scale, top, setSpring]
+  );
 }
