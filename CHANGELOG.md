@@ -2,11 +2,11 @@
 
 ## 0.1.2
 
-- change hooks return type to non-readonly in typescript
+- Change hooks return type to non-readonly in typescript
 
 ## 0.1.1
 
-- use memo for useScrollAndZoom and useZoomAndScrollSpringProps
+- Use memo for useScrollAndZoom and useZoomAndScrollSpringProps
 
 ## 0.1.0
 
