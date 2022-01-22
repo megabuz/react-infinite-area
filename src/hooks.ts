@@ -10,7 +10,7 @@ export const useContainerPointTransform = () => {
       return [
         (x - left.get()) / scale.get(),
         (y - top.get()) / scale.get(),
-      ] as const;
+      ] as [number, number];
     },
     [left, scale, top]
   );
