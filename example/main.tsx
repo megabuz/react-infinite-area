@@ -1,7 +1,7 @@
 import "./index.css";
 
 import React, { useRef, useState } from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { useDrag } from "@use-gesture/react";
 import { InfiniteArea, usePagePointTransform } from "../src";
 
@@ -124,9 +124,6 @@ const calcBoundaries = (items: Item[]) => {
   return { minX, minY, maxX, maxY };
 };
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+const container = document.getElementById("root");
+const root = createRoot(container!);
+root.render(<App />);

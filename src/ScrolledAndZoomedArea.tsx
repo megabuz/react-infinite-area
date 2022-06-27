@@ -2,7 +2,9 @@ import React from "react";
 import { animated } from "@react-spring/web";
 import { useZoomAndScrollSpringProps } from "./context";
 
-export const ScrolledAndZoomedArea: React.FC = ({ children }) => {
+export const ScrolledAndZoomedArea: React.FC<React.PropsWithChildren> = ({
+  children,
+}) => {
   const [{ scale, left, top }] = useZoomAndScrollSpringProps();
   return (
     <animated.div
