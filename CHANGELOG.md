@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0
+
+- Support react 18 and update dependencies
+
 ## 0.1.2
 
 - Change hooks return type to non-readonly in typescript
